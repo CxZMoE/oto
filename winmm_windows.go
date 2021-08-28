@@ -35,6 +35,7 @@ var (
 	procWaveOutPrepareHeader = winmm.NewProc("waveOutPrepareHeader")
 	procWaveOutReset         = winmm.NewProc("waveOutReset")
 	procWaveOutWrite         = winmm.NewProc("waveOutWrite")
+	procWaveOutSetVolume     = winmm.NewProc("waveOutSetVolume")
 )
 
 type wavehdr struct {
@@ -214,6 +215,24 @@ func waveOutWrite(hwo uintptr, pwh *wavehdr) error {
 	if mmresult(r) != mmsyserrNoerror {
 		return &winmmError{
 			fname:    "waveOutWrite",
+			mmresult: mmresult(r),
+		}
+	}
+	return nil
+}
+
+func waveOutSetVolume(hwo uintptr, vol uint16) error {
+	r, _, e := procWaveOutSetVolume.Call(hwo, uintptr(vol))
+
+	if e.(windows.Errno) != 0 {
+		return &winmmError{
+			fname: "waveOutSetVolume",
+			errno: e.(windows.Errno),
+		}
+	}
+	if mmresult(r) != mmsyserrNoerror {
+		return &winmmError{
+			fname:    "waveOutSetVolume",
 			mmresult: mmresult(r),
 		}
 	}

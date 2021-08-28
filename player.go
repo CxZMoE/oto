@@ -75,6 +75,10 @@ func (p *Player) Write(buf []byte) (int, error) {
 	return n, err
 }
 
+func (p *Player) SetVolume(vol uint16) error {
+	return p.context.driverWriter.driver.SetVolume(vol)
+}
+
 // Close closes the Player and frees any resources associated with it. The Player is no longer
 // usable after calling Close.
 func (p *Player) Close() error {

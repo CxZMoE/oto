@@ -34,6 +34,14 @@ func newDummyDriver(sampleRate, channelNum, bitDepthInBytes int) *dummyDriver {
 	}
 }
 
+func (d *dummyDriver) GetHandler() uintptr {
+	return 0
+}
+
+func (d *dummyDriver) SetVolume(vol uint16) error {
+	return nil
+}
+
 func (d *dummyDriver) bytes(t time.Duration) int {
 	return int(float64(d.sampleRate*d.channelNum*d.bitDepthInBytes) * float64(t) / float64(time.Second))
 }

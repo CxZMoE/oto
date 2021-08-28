@@ -67,6 +67,7 @@ func NewContext(sampleRate, channelNum, bitDepthInBytes, bufferSizeInBytes int) 
 	}
 
 	d, err := newDriver(sampleRate, channelNum, bitDepthInBytes, bufferSizeInBytes)
+
 	if err != nil {
 		return nil, err
 	}
@@ -122,6 +123,8 @@ type tryWriteCloser interface {
 
 	TryWrite([]byte) (int, error)
 	tryWriteCanReturnWithoutWaiting() bool
+	GetHandler() uintptr
+	SetVolume(vol uint16) error
 }
 
 type driverWriter struct {

@@ -98,6 +98,15 @@ func newDriver(sampleRate, channelNum, bitDepthInBytes, bufferSizeInBytes int) (
 	return p, nil
 }
 
+func (p *driver) GetHandler() uintptr {
+	return p.out
+}
+
+func (p *driver) SetVolume(vol uint16) error {
+	err := waveOutSetVolume(p.out, vol)
+	return err
+}
+
 func (p *driver) TryWrite(data []byte) (int, error) {
 	n := min(len(data), max(0, p.bufferSize-len(p.tmp)))
 	p.tmp = append(p.tmp, data[:n]...)
