@@ -15,7 +15,7 @@
 package oto
 
 import (
-	"github.com/hajimehoshi/oto/v2/internal/oboe"
+	"github.com/CxZMoE/oto/v2/internal/oboe"
 )
 
 type context struct {

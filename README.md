@@ -1,6 +1,6 @@
 # Oto (v2)
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/hajimehoshi/oto/v2.svg)](https://pkg.go.dev/github.com/hajimehoshi/oto/v2)
+[![Go Reference](https://pkg.go.dev/badge/github.com/CxZMoE/oto/v2.svg)](https://pkg.go.dev/github.com/CxZMoE/oto/v2)
 
 A low-level library to play sound.
 
