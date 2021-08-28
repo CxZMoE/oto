@@ -24,7 +24,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/hajimehoshi/oto"
+	"github.com/CxZMoE/oto"
 )
 
 var (
