@@ -124,7 +124,7 @@ type tryWriteCloser interface {
 	TryWrite([]byte) (int, error)
 	tryWriteCanReturnWithoutWaiting() bool
 	GetHandler() uintptr
-	SetVolume(vol uint16) error
+	SetVolume(vol uint32) error
 }
 
 type driverWriter struct {

@@ -75,7 +75,7 @@ func (p *Player) Write(buf []byte) (int, error) {
 	return n, err
 }
 
-func (p *Player) SetVolume(vol uint16) error {
+func (p *Player) SetVolume(vol uint32) error {
 	return p.context.driverWriter.driver.SetVolume(vol)
 }
 

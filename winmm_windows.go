@@ -221,7 +221,7 @@ func waveOutWrite(hwo uintptr, pwh *wavehdr) error {
 	return nil
 }
 
-func waveOutSetVolume(hwo uintptr, vol uint16) error {
+func waveOutSetVolume(hwo uintptr, vol uint32) error {
 	r, _, e := procWaveOutSetVolume.Call(hwo, uintptr(vol))
 
 	if e.(windows.Errno) != 0 {

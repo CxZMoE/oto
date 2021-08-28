@@ -38,7 +38,7 @@ func (d *dummyDriver) GetHandler() uintptr {
 	return 0
 }
 
-func (d *dummyDriver) SetVolume(vol uint16) error {
+func (d *dummyDriver) SetVolume(vol uint32) error {
 	return nil
 }
 

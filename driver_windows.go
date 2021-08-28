@@ -102,7 +102,7 @@ func (p *driver) GetHandler() uintptr {
 	return p.out
 }
 
-func (p *driver) SetVolume(vol uint16) error {
+func (p *driver) SetVolume(vol uint32) error {
 	err := waveOutSetVolume(p.out, vol)
 	return err
 }
